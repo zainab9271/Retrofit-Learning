@@ -1,6 +1,7 @@
 package com.zainab.retrofitlearning
 
 import com.zainab.retrofitlearning.model.JokeResponse
+import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
@@ -10,7 +11,7 @@ import retrofit2.http.GET
 interface JokeApiService{
 
     @GET("joke/Any")
-    fun getRandomJoke(): JokeResponse
+    fun getRandomJoke(): Call<JokeResponse>
 
 }
 
