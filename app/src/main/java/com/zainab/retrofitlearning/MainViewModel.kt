@@ -3,8 +3,9 @@ package com.zainab.retrofitlearning
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.zainab.retrofitlearning.model.JokeResponse
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.schedulers.Schedulers
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class MainViewModel: ViewModel() {
 
@@ -14,6 +15,15 @@ class MainViewModel: ViewModel() {
     }
 
     private fun getRandomJoke() {
+        API.apiService.getRandomJoke().enqueue(object : Callback<JokeResponse>{
+            override fun onResponse(call: Call<JokeResponse>, response: Response<JokeResponse>) {
+                joke.postValue(response.body())
+            }
 
+            override fun onFailure(call: Call<JokeResponse>, t: Throwable) {
+
+            }
+
+        })
     }
 }
