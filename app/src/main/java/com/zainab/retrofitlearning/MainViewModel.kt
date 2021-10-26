@@ -14,6 +14,13 @@ class MainViewModel: ViewModel() {
     }
 
     private fun getRandomJoke() {
+        API.apiService.getRandomJoke()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({
+                joke.postValue(it)
+            },{
 
+            })
     }
 }
