@@ -2,9 +2,9 @@ package com.zainab.retrofitlearning
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.zainab.retrofitlearning.model.JokeResponse
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.launch
 
 class MainViewModel: ViewModel() {
 
@@ -14,6 +14,8 @@ class MainViewModel: ViewModel() {
     }
 
     private fun getRandomJoke() {
-
+        viewModelScope.launch {
+            joke.postValue(API.apiService.getRandomJoke())
+        }
     }
 }
