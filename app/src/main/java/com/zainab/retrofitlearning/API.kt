@@ -10,7 +10,7 @@ import retrofit2.http.GET
 interface JokeApiService{
 
     @GET("joke/Any")
-    fun getRandomJoke(): JokeResponse
+    suspend fun getRandomJoke(): JokeResponse
 
 }
 
