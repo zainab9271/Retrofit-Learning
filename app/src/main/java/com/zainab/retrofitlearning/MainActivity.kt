@@ -9,7 +9,7 @@ import com.zainab.retrofitlearning.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
-    val viewModel: MainViewModel by viewModels()
+    private val viewModel: MainViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
