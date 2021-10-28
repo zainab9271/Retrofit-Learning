@@ -4,6 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.zainab.retrofitlearning.model.JokeResponse
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class MainViewModel: ViewModel() {
@@ -17,7 +18,9 @@ class MainViewModel: ViewModel() {
 
     private fun getRandomJoke() {
         viewModelScope.launch {
-            joke.postValue(repository.getRandomJoke())
+            repository.getRandomJoke().collect{
+                joke.postValue(it)
+            }
         }
     }
 }
