@@ -4,6 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.zainab.retrofitlearning.model.JokeResponse
+import com.zainab.retrofitlearning.networking.API
 import kotlinx.coroutines.launch
 
 class MainViewModel: ViewModel() {

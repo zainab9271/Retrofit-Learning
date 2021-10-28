@@ -1,18 +1,7 @@
-package com.zainab.retrofitlearning
+package com.zainab.retrofitlearning.networking
 
-import com.zainab.retrofitlearning.model.JokeResponse
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.GET
-
-
-
-interface JokeApiService{
-
-    @GET("joke/Any")
-    suspend fun getRandomJoke(): JokeResponse
-
-}
 
 object API {
     private val BASE_URL = "https://v2.jokeapi.dev/"
